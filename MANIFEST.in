@@ -1,0 +1,3 @@
+include README.rst
+recursive-include templatetag_handlebars/templates *.html
+recursive-include templatetag_handlebars/static *.js
