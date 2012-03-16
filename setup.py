@@ -14,9 +14,7 @@ setup(
     long_description=open(os.path.join(here, 'README.rst')).read(),
     install_requires=[],
     packages=find_packages(),
-    package_data = {
-        '': ['*.js', '*.html'],
-    },
+    include_package_data = True,
     classifiers  = ['Topic :: Utilities', 
                     'Natural Language :: English',
                     'Operating System :: OS Independent',
