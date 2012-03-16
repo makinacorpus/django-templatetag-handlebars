@@ -68,8 +68,8 @@ AUTHORS
 Similar tools
 =============
 
-* `django-handlebars <http://pypi.python.org/pypi/django-handlebars>`_, by Chris Vigelius, 
-   which focuses on server-side Handlebars rendering.
+* `django-handlebars <https://github.com/yavorskiy/django-handlebars>`_, by Sergii Iavorskyi, which focuses on server-side Handlebars rendering.
+* `django-handlebars <https://bitbucket.org/chrisv/django-handlebars>`_, by Chris Vigelius, with templates in separate files.
 
 =======
 LICENSE
