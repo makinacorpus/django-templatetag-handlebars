@@ -5,7 +5,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 setup(
     name='django-templatetag-handlebars',
-    version='1.0',
+    version='1.0.1',
     author='Mathieu Leplatre',
     author_email='mathieu.leplatre@makina-corpus.com',
     url='https://github.com/makinacorpus/django-templatetag-handlebars',
@@ -14,6 +14,9 @@ setup(
     long_description=open(os.path.join(here, 'README.rst')).read(),
     install_requires=[],
     packages=find_packages(),
+    package_data = {
+        '': ['*.js', '*.html'],
+    },
     classifiers  = ['Topic :: Utilities', 
                     'Natural Language :: English',
                     'Operating System :: OS Independent',
