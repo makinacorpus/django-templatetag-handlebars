@@ -28,7 +28,7 @@ USAGE
     ...
     </head>
 
-* Call the template tag in your pages :
+* Call the template tag, and write your Handlebars template :
 
 ::
 
@@ -38,18 +38,36 @@ USAGE
         <p>{% trans "Max" %}: {{max}}</p>
     {% endtplhandlebars %}
 
-* Render your block as usual using ``Handlebars.js`` API :
+* The following block with end-up in your page :
+
+::
+
+    <script id="tpl-infos" type="text/x-handlebars-template">
+        {{total}} result(s).
+        <p>Min: {{min}}</p>
+        <p>Max: {{max}}</p>
+    <script>
+
+* Render it, client-side, as usual using ``Handlebars.js`` API :
 
 ::
 
     var properties = {
         total: 10,
-        min: 5,
-        max: 4
+        min: 4,
+        max: 5
     };
 
     var template = Handlebars.compile($('#tpl-infos').html()),
         rendered = template(properties);
+
+* Your rendered string is ready, and waiting to be inserted in your DOM :)
+
+::
+
+    10 result(s).
+    <p>Min: 4</p>
+    <p>Max: 5</p>
 
 
 =======
@@ -69,7 +87,7 @@ Similar tools
 =============
 
 * `django-handlebars <https://github.com/yavorskiy/django-handlebars>`_, by Sergii Iavorskyi, which focuses on server-side Handlebars rendering.
-* `django-handlebars <https://bitbucket.org/chrisv/django-handlebars>`_, by Chris Vigelius, with templates in separate files.
+* `django-handlebars <https://bitbucket.org/chrisv/django-handlebars>`_, by Chris Vigelius, with templates in separate files, and served in one block.
 
 =======
 LICENSE
