@@ -1,4 +1,6 @@
 from django import template
+from django.conf import settings
+
 
 register = template.Library()
 
@@ -91,6 +93,11 @@ class VerbatimNode(template.Node):
 def verbatim(parser, token):
     text_and_nodes = verbatim_tags(parser, token, 'endverbatim')
     return VerbatimNode(text_and_nodes)
+
+
+@register.simple_tag
+def handlebars_js():
+    return """<script src="%shandlebars.js"></script>""" % settings.STATIC_URL
 
 
 class HandlebarsNode(VerbatimNode):

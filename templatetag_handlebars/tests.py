@@ -10,6 +10,10 @@ class TemplateTagTest(TestCase):
         t = Template("""
             {% load i18n templatetag_handlebars %}
             
+            <head>
+                {% handlebars_js %}
+            </head>
+            
             {% tplhandlebars "tpl-testing" %}
                 {% trans "with translation" %}
                 {{name}}
@@ -19,6 +23,7 @@ class TemplateTagTest(TestCase):
             """)
         c = Context()
         rendered = t.render(c)
+        self.failUnless('handlebars.js"></script>' in rendered)
         self.failUnless('<script id="tpl-testing" type="text/x-handlebars-template">' in rendered)
         self.failUnless('{{name}}' in rendered)
         self.failUnless('{{{rawname}}}' in rendered)

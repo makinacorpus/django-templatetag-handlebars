@@ -21,17 +21,17 @@ USAGE
 
 ::
 
+    {% load templatetag_handlebars %}
+
     <head>
-    {% include "templatetag_handlebars/head.html" %}
+    {% handlebars_js %}
     ...
     </head>
 
-* Call the template tag :
+* Call the template tag in your pages :
 
 ::
 
-    {% load templatetag_handlebars %}
-    
     {% tplhandlebars "tpl-infos" %}
         {{total}} {% trans "result(s)." %}
         <p>{% trans "Min" %}: {{min}}</p>
