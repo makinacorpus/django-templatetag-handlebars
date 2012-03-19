@@ -69,6 +69,24 @@ USAGE
     <p>Min: 4</p>
     <p>Max: 5</p>
 
+Advanced
+========
+
+A `{% verbatim %}` tag is available to escape a specific part. For 
+example, you may want a subpart of your *Handlebars* template to be 
+rendered by Django :
+
+::
+
+    <script id="tpl-django-form" type="text/x-handlebars-template">
+        <form>
+            {% verbatim %}
+                {{#if id}}<h1>{{ id }}</h1>{{/if}}
+            {% endverbatim %}
+            {{ yourform.as_p }}
+        </form>
+    </script>
+
 
 =======
 AUTHORS
@@ -86,8 +104,8 @@ AUTHORS
 Similar tools
 =============
 
-* `django-handlebars <https://github.com/yavorskiy/django-handlebars>`_, by Sergii Iavorskyi, which focuses on server-side Handlebars rendering.
-* `django-handlebars <https://bitbucket.org/chrisv/django-handlebars>`_, by Chris Vigelius, with templates in separate files, and served in one block.
+* `django-handlebars by Sergii Iavorskyi <https://github.com/yavorskiy/django-handlebars>`_, which focuses on server-side Handlebars rendering.
+* `django-handlebars by Chris Vigelius <https://bitbucket.org/chrisv/django-handlebars>`_, with templates in separate files, and served in one block.
 
 =======
 LICENSE
