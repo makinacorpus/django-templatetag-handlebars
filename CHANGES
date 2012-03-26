@@ -1,0 +1,19 @@
+Changelog
+=========
+
+1.1.0 (2012-03-26)
+------------------
+
+* Remove dependency to template Egg loader using template tag
+
+
+1.0.1 (2012-03-16)
+------------------
+
+* Fix packaging
+
+
+1.0.0 (2012-03-16)
+------------------
+
+* Initial working version

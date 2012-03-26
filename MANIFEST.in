@@ -1,2 +1,2 @@
-include README.rst
+include README.rst CHANGES LICENSE
 recursive-include templatetag_handlebars/static *.js
