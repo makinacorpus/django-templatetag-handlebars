@@ -121,7 +121,7 @@ class HandlebarsNode(VerbatimNode):
     def render(self, context):
         output = super(HandlebarsNode, self).render(context)
         return """
-        <script id="%s" type="text/x-handlebars-template">
+        <script type="text/x-handlebars" data-template-name="%s">
         %s
         </script>""" % (self.template_id, output)
 

@@ -42,7 +42,8 @@ USAGE
 
 ::
 
-    <script id="tpl-infos" type="text/x-handlebars-template">
+    <script type="text/x-handlebars" data-template-name="tpl-infos">
+
         {{total}} result(s).
         <p>Min: {{min}}</p>
         <p>Max: {{max}}</p>
@@ -78,7 +79,8 @@ rendered by Django :
 
 ::
 
-    <script id="tpl-django-form" type="text/x-handlebars-template">
+    <script type="text/x-handlebars" data-template-name="tpl-django-form">
+
         <form>
             {% verbatim %}
                 {{#if id}}<h1>{{ id }}</h1>{{/if}}

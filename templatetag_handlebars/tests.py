@@ -16,7 +16,7 @@ class TemplateTagTest(TestCase):
             
             {% tplhandlebars "tpl-testing" %}
                 {% trans "with translation" %}
-                <p>{{name}}</p>
+                {{name}}
                 {{{rawname}}}
                 {# works with comments too #}
             {% endtplhandlebars %}
@@ -24,13 +24,10 @@ class TemplateTagTest(TestCase):
         c = Context()
         rendered = t.render(c)
         self.failUnless('handlebars.js"></script>' in rendered)
-        self.failUnless('<script id="tpl-testing" type="text/x-handlebars-template">' in rendered)
+        self.failUnless('<script type="text/x-handlebars" data-template-name="tpl-testing">' in rendered)
         self.failUnless('{{name}}' in rendered)
         self.failUnless('{{{rawname}}}' in rendered)
         self.failUnless('with translation' in rendered)
-        # HTML should not be escaped
-        self.failUnless('<p>' in rendered)
-        self.failUnless('</p>' in rendered)
         # Those should not be rendered :
         self.failUnless('{% trans %}' not in rendered)
         self.failUnless('comments' not in rendered)
