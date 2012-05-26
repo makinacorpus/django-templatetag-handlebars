@@ -91,11 +91,26 @@ rendered by Django :
 
 
 =======
+WHEN USING EMBERJS
+=======
+
+In settings.py ensure to set the following attribute to True. This is due to emberjs expecting a slightly different script id decleration
+
+For Ember: <script type="text/x-handlebars" data-template-name="%s">
+For Std Handlebars: <script id="%s" type="text/x-handlebars-template">
+
+::
+
+    USE_EMBER_STYLE_ATTRS = True
+
+
+=======
 AUTHORS
 =======
 
     * Mathieu Leplatre <mathieu.leplatre@makina-corpus.com>
     * Miguel Araujo <https://github.com/maraujop>
+    * Ross Crawford-d'Heureuse <https://github.com/stard0g101>
 
 |makinacom|_
 

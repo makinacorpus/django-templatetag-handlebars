@@ -31,3 +31,6 @@ class TemplateTagTest(TestCase):
         # Those should not be rendered :
         self.failUnless('{% trans %}' not in rendered)
         self.failUnless('comments' not in rendered)
+        # HTML should not be escaped
+        self.failUnless('<p>' in rendered)
+        self.failUnless('</p>' in rendered)

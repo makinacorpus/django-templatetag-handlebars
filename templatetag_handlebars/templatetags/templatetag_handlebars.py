@@ -1,9 +1,11 @@
+from django.conf import settings
 from django import template
 from django.conf import settings
 
 
 register = template.Library()
 
+EMBER_ATTRS = getattr(settings, 'USE_EMBER_STYLE_ATTRS', False)
 
 """
 
@@ -120,10 +122,11 @@ class HandlebarsNode(VerbatimNode):
     
     def render(self, context):
         output = super(HandlebarsNode, self).render(context)
+        head_script = ('<script type="text/x-handlebars" data-template-name="%s">' if EMBER_ATTRS is True else '<script id="%s" type="text/x-handlebars-template">')%(self.template_id,)
         return """
-        <script type="text/x-handlebars" data-template-name="%s">
         %s
-        </script>""" % (self.template_id, output)
+        %s
+        </script>""" % (head_script, output)
 
 @register.tag
 def tplhandlebars(parser, token):
