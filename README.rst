@@ -42,7 +42,8 @@ USAGE
 
 ::
 
-    <script id="tpl-infos" type="text/x-handlebars-template">
+    <script type="text/x-handlebars" data-template-name="tpl-infos">
+
         {{total}} result(s).
         <p>Min: {{min}}</p>
         <p>Max: {{max}}</p>
@@ -78,7 +79,8 @@ rendered by Django :
 
 ::
 
-    <script id="tpl-django-form" type="text/x-handlebars-template">
+    <script type="text/x-handlebars" data-template-name="tpl-django-form">
+
         <form>
             {% verbatim %}
                 {{#if id}}<h1>{{ id }}</h1>{{/if}}
@@ -89,11 +91,26 @@ rendered by Django :
 
 
 =======
+WHEN USING EMBERJS
+=======
+
+In settings.py ensure to set the following attribute to True. This is due to emberjs expecting a slightly different script id decleration
+
+For Ember: <script type="text/x-handlebars" data-template-name="%s">
+For Std Handlebars: <script id="%s" type="text/x-handlebars-template">
+
+::
+
+    USE_EMBER_STYLE_ATTRS = True
+
+
+=======
 AUTHORS
 =======
 
     * Mathieu Leplatre <mathieu.leplatre@makina-corpus.com>
     * Miguel Araujo <https://github.com/maraujop>
+    * Ross Crawford-d'Heureuse <https://github.com/stard0g101>
 
 |makinacom|_
 
