@@ -42,7 +42,7 @@ USAGE
 
 ::
 
-    <script type="text/x-handlebars" data-template-name="tpl-infos">
+    <script type="text/x-handlebars" id="tpl-infos">
 
         {{total}} result(s).
         <p>Min: {{min}}</p>
@@ -73,13 +73,13 @@ USAGE
 Advanced
 ========
 
-A `{% verbatim %}` tag is available to escape a specific part. For 
+A ``{% verbatim %}`` tag is available to escape a specific part. For 
 example, you may want a subpart of your *Handlebars* template to be 
 rendered by Django :
 
 ::
 
-    <script type="text/x-handlebars" data-template-name="tpl-django-form">
+    <script type="text/x-handlebars" id="tpl-django-form">
 
         <form>
             {% verbatim %}
@@ -94,15 +94,14 @@ rendered by Django :
 WHEN USING EMBERJS
 =======
 
-In settings.py ensure to set the following attribute to True. This is due to emberjs expecting a slightly different script id decleration
-
-For Ember: <script type="text/x-handlebars" data-template-name="%s">
-For Std Handlebars: <script id="%s" type="text/x-handlebars-template">
+In ``settings.py`` ensure to set the following attribute to ``True``. This is due to `Ember.js <http://emberjs.com/>`_ expecting a slightly different script id declaration
 
 ::
 
     USE_EMBER_STYLE_ATTRS = True
 
+
+The script block will be rendered like ```<script type="text/x-handlebars" data-template-name="%s">```.
 
 =======
 AUTHORS
