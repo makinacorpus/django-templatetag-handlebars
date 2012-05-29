@@ -90,9 +90,8 @@ rendered by Django :
     </script>
 
 
-=======
-WHEN USING EMBERJS
-=======
+Using Ember.js
+==============
 
 In ``settings.py`` ensure to set the following attribute to ``True``. This is due to `Ember.js <http://emberjs.com/>`_ expecting a slightly different script id declaration
 
