@@ -2,6 +2,11 @@
 CHANGELOG
 =========
 
+1.2.0 (2012-05-30)
+==================
+
+* Add compatibility with Ember.js with a setting (default False). See README.rst.
+
 1.1.0 (2012-03-26)
 ==================
 
