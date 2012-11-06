@@ -83,7 +83,9 @@ rendered by Django :
 
         <form>
             {% verbatim %}
-                {{#if id}}<h1>{{ id }}</h1>{{/if}}
+                {{#if id}}<h1>{{first}} {{last}}</h1>{{/if}}
+                
+                {% trans "Your id is" %} {{ id }}
             {% endverbatim %}
             {{ yourform.as_p }}
         </form>
