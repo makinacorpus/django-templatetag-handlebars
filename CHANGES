@@ -5,7 +5,7 @@ CHANGELOG
 1.2.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+* Add Django 1.8 compatibility (thanks @markvl)
 
 
 1.2.0 (2012-05-30)
