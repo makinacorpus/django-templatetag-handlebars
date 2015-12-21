@@ -11,6 +11,7 @@ register = template.Library()
 
 """
 
+
 def verbatim_tags(parser, token, endtagname):
     """
     Javascript templates (jquery, handlebars.js, mustache.js) use constructs like:
@@ -88,6 +89,7 @@ class VerbatimNode(template.Node):
                 output += bit.render(context)
         return output
 
+
 @register.tag
 def verbatim(parser, token):
     text_and_nodes = verbatim_tags(parser, token, 'endverbatim')
@@ -118,22 +120,27 @@ class HandlebarsNode(VerbatimNode):
         self.template_id = template_id
 
     def render(self, context):
-        USE_EMBER_STYLE_ATTRS = getattr(settings, 'USE_EMBER_STYLE_ATTRS', False)
         output = super(HandlebarsNode, self).render(context)
-        head_script = ('<script type="text/x-handlebars" data-template-name="%s">' if USE_EMBER_STYLE_ATTRS is True else '<script id="%s" type="text/x-handlebars-template">')%(self.template_id)
+        if getattr(settings, 'USE_EMBER_STYLE_ATTRS', False) is True:
+            id_attr, script_type = 'data-template-name', 'text/x-handlebars'
+        else:
+            id_attr, script_type = 'id', 'text/x-handlebars-template'
+        head_script = '<script type="%s" %s="%s">' % (script_type, id_attr,
+                                                      self.template_id)
         return """
         %s
         %s
         </script>""" % (head_script, output)
+
 
 @register.tag
 def tplhandlebars(parser, token):
     text_and_nodes = verbatim_tags(parser, token, endtagname='endtplhandlebars')
     # Extract template id from token
     tokens = token.split_contents()
-    stripquote = lambda s: s[1:-1] if s[:1]=='"' else s
+    stripquote = lambda s: s[1:-1] if s[:1] == '"' else s
     try:
-        tag_name, template_id = map(stripquote , tokens[:2])
+        tag_name, template_id = map(stripquote, tokens[:2])
     except ValueError:
         raise template.TemplateSyntaxError(
             "%s tag requires exactly one argument" % token.split_contents()[0])
